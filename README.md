@@ -1,4 +1,11 @@
 # How to...
+## General
+nb. Readme is a WIP - will add gradually.
+
+## About
+This is the basic underlying game of Live Rail stripped back to be reusable for any other point and click
+
+
 ## Dialogue
 <details>
 <summary>

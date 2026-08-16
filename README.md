@@ -52,7 +52,6 @@ In this example, the text will always play on the "start" block. The "condition"
 	}
 }
 ```
-
 </details>
 
 <details>

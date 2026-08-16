@@ -1,0 +1,72 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="TheSubway3"
+run/main_scene="res://game.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+
+[autoload]
+
+GameState="*res://Scripts/GameState.gd"
+DialogueManager="*res://UI/Scripts/DialogueManager.gd"
+Inventory="*res://UI/Inventory/Inventory.gd"
+ModalManager="*res://Scene_auxilliaries/ModalManager.gd"
+StationMappings="*res://station_mappings.gd"
+Helpers="*res://helpers.gd"
+CutScene="*res://Rooms/QueenStreet/cut_scene.gd"
+
+[display]
+
+window/size/viewport_width=720
+window/size/viewport_height=500
+window/size/mode=3
+window/size/resizable=false
+window/stretch/mode="viewport"
+mouse_cursor/custom_image="res://arrow.png"
+
+[global_group]
+
+smoke_break=""
+interactable=""
+
+[gui]
+
+fonts/dynamic_fonts/use_oversampling=false
+theme/custom_font="res://Fonts/pixel.ttf"
+theme/default_font_antialiasing=0
+theme/default_font_hinting=0
+theme/screen_space_roughness_limiter/enabled=true
+
+[input]
+
+ui_leftMouseClick={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"canceled":false,"pressed":false,"double_click":false,"script":null)
+]
+}
+ui_mousehover={
+"deadzone": 0.5,
+"events": []
+}
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+textures/default_filters/anisotropic_filtering_level=0
+anti_aliasing/screen_space_roughness_limiter/enabled=false
+textures/decals/filter=0
+textures/light_projectors/filter=1
+mesh_lod/lod_change/threshold_pixels=2.0
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

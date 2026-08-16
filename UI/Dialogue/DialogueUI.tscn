@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu8m5yhawyjfy"]
+
+[ext_resource type="Script" path="res://UI/Dialogue/dialogue_ui.gd" id="1_jshm8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kso1y"]
+bg_color = Color(0.051971, 0.051971, 0.0519709, 1)
+
+[node name="DialogueUi" type="CanvasLayer"]
+script = ExtResource("1_jshm8")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_kso1y")
+
+[node name="Text" type="Label" parent="Panel"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+mouse_filter = 0
+theme_override_font_sizes/font_size = 8
+
+[node name="Choices" type="VBoxContainer" parent="Panel"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 40.0
+offset_bottom = 40.0

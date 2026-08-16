@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://qrbbuyk7fu8b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxfa2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.850272, 0.587381, 0.127141, 1)
+shadow_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8rt8e"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htqfq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.85098, 0.588235, 0.12549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k4kit"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dmr11"]
+size = Vector2(96, 30)
+
+[node name="Verb" type="Button"]
+z_index = 4096
+z_as_relative = false
+offset_left = -25.0
+offset_top = -7.0
+offset_right = 25.0
+offset_bottom = 8.0
+theme_override_styles/focus = SubResource("StyleBoxFlat_cxfa2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8rt8e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_htqfq")
+theme_override_styles/normal = SubResource("StyleBoxFlat_k4kit")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(25, 8)
+shape = SubResource("RectangleShape2D_dmr11")

@@ -1,0 +1,26 @@
+{
+	"before_all": {
+		"characters": {
+			"player": {
+				"starting_location": ""
+			}
+		},
+		"items": {},
+		"location": ""
+	},
+	"sequence": [
+		{
+			"fade": {
+				"level": nil,
+				"durtion": nil
+			}
+		},
+		{
+			"move": ""
+		},
+		{
+			"character": "",
+			"say": ""
+		}
+	]
+}

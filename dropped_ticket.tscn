@@ -1,0 +1,75 @@
+[gd_scene load_steps=9 format=3 uid="uid://bow336ddppdw5"]
+
+[ext_resource type="Script" path="res://Scene_auxilliaries/interactive_object.gd" id="1_qsm5q"]
+[ext_resource type="Script" path="res://UI/Inventory/inventory_object.gd" id="2_5w14q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a728a"]
+load_path = "res://.godot/imported/dropped_ticket.png-86469800eeaddb3a26195b15690f553b.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3diq7"]
+atlas = SubResource("CompressedTexture2D_a728a")
+
+[sub_resource type="Resource" id="Resource_q1faf"]
+script = ExtResource("2_5w14q")
+id = "picture_of_house"
+display_name = "poh"
+description = "poh"
+icon = SubResource("AtlasTexture_3diq7")
+interaction_json = "res://UI/Inventory/Inventory_Items/Scripts/ticket.json"
+has_modal = false
+
+[sub_resource type="FontVariation" id="FontVariation_ixama"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_75r3x"]
+font = SubResource("FontVariation_ixama")
+font_size = 5
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s8pd0"]
+size = Vector2(6, 8)
+
+[node name="InteractiveObject" type="Sprite2D"]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("1_qsm5q")
+conditional = {
+"dialogue_flags": "dropped_ticket"
+}
+items = {
+"action_dialogue": "I can't reach",
+"item_flag": "dropped_ticket",
+"negative_item": "I can't reach",
+"positive_item": "Woo ticket",
+"tertiary_item": "I'm done"
+}
+interaction_json = "res://UI/Inventory/Inventory_Items/Scripts/dropped_ticket.json"
+pickable = true
+pickable_item = SubResource("Resource_q1faf")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+offset_left = -18.0
+offset_top = -11.0
+offset_right = 22.0
+offset_bottom = 12.0
+label_settings = SubResource("LabelSettings_75r3x")
+
+[node name="StaticBody2D" type="Area2D" parent="."]
+y_sort_enabled = true
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_s8pd0")
+
+[node name="InteractionPoint" type="Marker2D" parent="."]
+
+[connection signal="input_event" from="StaticBody2D" to="." method="_on_static_body_2d_input_event"]
+[connection signal="mouse_entered" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_entered"]
+[connection signal="mouse_exited" from="StaticBody2D" to="." method="_on_static_body_2d_mouse_exited"]

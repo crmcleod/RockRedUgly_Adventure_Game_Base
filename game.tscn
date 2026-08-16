@@ -1,0 +1,256 @@
+[gd_scene load_steps=6 format=3 uid="uid://c5yeaqac1mr07"]
+
+[ext_resource type="Script" path="res://Scene_auxilliaries/control.gd" id="1_81a1e"]
+[ext_resource type="PackedScene" uid="uid://bu8m5yhawyjfy" path="res://UI/Dialogue/DialogueUI.tscn" id="6_1e8ml"]
+[ext_resource type="Texture2D" uid="uid://cairq6d2nc0ny" path="res://arrow.png" id="7_yqr8a"]
+[ext_resource type="PackedScene" uid="uid://dgrfu7jplaada" path="res://UI/VerbBar/node_2d.tscn" id="8_6emf1"]
+[ext_resource type="Script" path="res://UI/v_box_container.gd" id="10_ixt4j"]
+
+[node name="Game" type="Control"]
+y_sort_enabled = true
+layout_mode = 3
+anchors_preset = 0
+scale = Vector2(2, 2)
+script = ExtResource("1_81a1e")
+
+[node name="Fade" type="CanvasLayer" parent="."]
+
+[node name="Fade_color_rect" type="ColorRect" parent="Fade"]
+z_index = 10
+offset_right = 720.0
+offset_bottom = 500.0
+color = Color(0, 0, 0, 0)
+
+[node name="LevelContainer" type="Node2D" parent="."]
+
+[node name="DialogueUi" parent="." instance=ExtResource("6_1e8ml")]
+layer = 128
+
+[node name="Panel" parent="DialogueUi" index="0"]
+offset_top = 395.0
+offset_right = 720.0
+offset_bottom = 500.0
+
+[node name="Text" parent="DialogueUi/Panel" index="0"]
+texture_filter = 1
+offset_left = 2.0
+offset_top = 5.0
+offset_right = 246.0
+offset_bottom = 32.0
+theme_override_font_sizes/font_size = 12
+
+[node name="Choices" parent="DialogueUi/Panel" index="1"]
+offset_left = 6.0
+offset_top = 6.0
+offset_right = 508.0
+offset_bottom = 97.0
+theme_override_constants/separation = -2
+
+[node name="Cursor" type="TextureRect" parent="DialogueUi"]
+z_index = 1000
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.6, 0.6)
+mouse_filter = 2
+texture = ExtResource("7_yqr8a")
+
+[node name="Node2D" parent="." instance=ExtResource("8_6emf1")]
+z_index = 4096
+z_as_relative = false
+texture_filter = 2
+mouse_filter = 1
+
+[node name="Sprite2D" parent="Node2D" index="0"]
+z_index = 4096
+z_as_relative = false
+texture_filter = 1
+position = Vector2(180, 222.509)
+scale = Vector2(1, 0.981132)
+
+[node name="ColorRect" parent="Node2D/Sprite2D" index="0"]
+offset_top = -25.0
+offset_right = 179.0
+offset_bottom = 26.0
+
+[node name="VBoxContainer" parent="Node2D" index="1"]
+texture_filter = 1
+offset_top = 201.0
+offset_right = 358.0
+offset_bottom = 245.0
+script = ExtResource("10_ixt4j")
+
+[node name="ScrollContainer" parent="Node2D/VBoxContainer" index="0"]
+offset_top = -3.0
+offset_right = 140.0
+offset_bottom = 48.0
+mouse_filter = 2
+
+[node name="GridContainer" parent="Node2D/VBoxContainer/ScrollContainer" index="0"]
+texture_filter = 1
+custom_minimum_size = Vector2(26, 26)
+
+[node name="up_button" type="Button" parent="Node2D/VBoxContainer" index="1"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.061
+anchor_top = 0.245
+anchor_right = -0.061
+anchor_bottom = 0.245
+offset_left = -5.521
+offset_top = -8.515
+offset_right = 5.479
+offset_bottom = 8.485
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/font_color = Color(0, 0, 0, 0)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_normal_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_focus_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_hover_pressed_color = Color(0, 0, 0, 0)
+theme_override_colors/icon_disabled_color = Color(0, 0, 0, 0)
+theme_override_constants/outline_size = 0
+
+[node name="down_button" type="Button" parent="Node2D/VBoxContainer" index="2"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.058
+anchor_top = 0.755
+anchor_right = -0.058
+anchor_bottom = 0.755
+offset_left = -4.938
+offset_top = -8.485
+offset_right = 5.062
+offset_bottom = 8.515
+
+[node name="walk_verb" parent="Node2D/VerbContainer" index="0"]
+offset_top = 398.0
+offset_right = 100.0
+offset_bottom = 427.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/walk_verb/StaticBody2D" index="0"]
+position = Vector2(48, 14)
+
+[node name="look_verb" parent="Node2D/VerbContainer" index="1"]
+offset_left = 106.0
+offset_top = 398.0
+offset_right = 202.0
+offset_bottom = 427.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/look_verb/StaticBody2D" index="0"]
+position = Vector2(48, 15)
+
+[node name="open_verb" parent="Node2D/VerbContainer" index="2"]
+offset_left = 207.0
+offset_top = 398.0
+offset_right = 301.0
+offset_bottom = 428.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/open_verb/StaticBody2D" index="0"]
+position = Vector2(47, 15)
+
+[node name="move_verb" parent="Node2D/VerbContainer" index="3"]
+offset_left = 307.0
+offset_top = 398.0
+offset_right = 404.0
+offset_bottom = 428.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/move_verb/StaticBody2D" index="0"]
+position = Vector2(48, 14)
+
+[node name="consume_verb" parent="Node2D/VerbContainer" index="4"]
+offset_left = 3.0
+offset_top = 433.0
+offset_right = 100.0
+offset_bottom = 461.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/consume_verb/StaticBody2D" index="0"]
+position = Vector2(49, 13)
+
+[node name="pickup_verb" parent="Node2D/VerbContainer" index="5"]
+offset_left = 105.0
+offset_top = 433.0
+offset_right = 201.0
+offset_bottom = 461.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/pickup_verb/StaticBody2D" index="0"]
+position = Vector2(49, 13)
+
+[node name="close_verb" parent="Node2D/VerbContainer" index="6"]
+offset_left = 208.0
+offset_top = 433.0
+offset_right = 301.0
+offset_bottom = 460.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/close_verb/StaticBody2D" index="0"]
+position = Vector2(46, 13)
+
+[node name="use_verb" parent="Node2D/VerbContainer" index="7"]
+offset_left = 307.0
+offset_top = 433.0
+offset_right = 403.0
+offset_bottom = 461.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/use_verb/StaticBody2D" index="0"]
+position = Vector2(48, 14)
+
+[node name="give_verb" parent="Node2D/VerbContainer" index="8"]
+offset_left = 306.0
+offset_top = 465.0
+offset_right = 403.0
+offset_bottom = 495.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/give_verb/StaticBody2D" index="0"]
+position = Vector2(48.75, 15.25)
+
+[node name="wear_verb" parent="Node2D/VerbContainer" index="9"]
+offset_left = 207.0
+offset_top = 466.0
+offset_right = 301.0
+offset_bottom = 495.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/wear_verb/StaticBody2D" index="0"]
+position = Vector2(47, 14)
+
+[node name="remove_verb" parent="Node2D/VerbContainer" index="10"]
+offset_left = 105.0
+offset_top = 465.0
+offset_right = 202.0
+offset_bottom = 495.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/remove_verb/StaticBody2D" index="0"]
+position = Vector2(48, 15)
+
+[node name="talk_verb" parent="Node2D/VerbContainer" index="11"]
+offset_left = 4.0
+offset_top = 466.0
+offset_right = 100.0
+offset_bottom = 495.0
+
+[node name="CollisionShape2D" parent="Node2D/VerbContainer/talk_verb/StaticBody2D" index="0"]
+position = Vector2(48, 14)
+
+[connection signal="pressed" from="Node2D/VBoxContainer/up_button" to="Node2D/VBoxContainer" method="_on_up_button_pressed"]
+[connection signal="pressed" from="Node2D/VBoxContainer/down_button" to="Node2D/VBoxContainer" method="_on_down_button_pressed"]
+
+[editable path="DialogueUi"]
+[editable path="Node2D"]
+[editable path="Node2D/VerbContainer/walk_verb"]
+[editable path="Node2D/VerbContainer/look_verb"]
+[editable path="Node2D/VerbContainer/open_verb"]
+[editable path="Node2D/VerbContainer/move_verb"]
+[editable path="Node2D/VerbContainer/consume_verb"]
+[editable path="Node2D/VerbContainer/pickup_verb"]
+[editable path="Node2D/VerbContainer/close_verb"]
+[editable path="Node2D/VerbContainer/use_verb"]
+[editable path="Node2D/VerbContainer/give_verb"]
+[editable path="Node2D/VerbContainer/wear_verb"]
+[editable path="Node2D/VerbContainer/remove_verb"]
+[editable path="Node2D/VerbContainer/talk_verb"]

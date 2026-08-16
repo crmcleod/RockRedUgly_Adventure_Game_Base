@@ -1,0 +1,176 @@
+[gd_scene load_steps=18 format=3 uid="uid://dgrfu7jplaada"]
+
+[ext_resource type="Script" path="res://Scene_auxilliaries/node_2d.gd" id="1_kkcuk"]
+[ext_resource type="Texture2D" uid="uid://tvrpsh8yr73u" path="res://UI/verb_bar.png" id="2_2npwc"]
+[ext_resource type="Script" path="res://UI/Inventory/grid_container.gd" id="3_xi2x0"]
+[ext_resource type="PackedScene" uid="uid://qrbbuyk7fu8b" path="res://UI/VerbBar/verb.tscn" id="4_errdb"]
+[ext_resource type="Script" path="res://UI/VerbBar/verb_walk.gd" id="5_23c6i"]
+[ext_resource type="Script" path="res://UI/VerbBar/look_verb.gd" id="6_jav3c"]
+[ext_resource type="Script" path="res://UI/VerbBar/open_verb.gd" id="7_ileh8"]
+[ext_resource type="Script" path="res://UI/VerbBar/move_verb.gd" id="8_isk8g"]
+[ext_resource type="Script" path="res://UI/VerbBar/consume_verb.gd" id="9_aavu6"]
+[ext_resource type="Script" path="res://UI/VerbBar/pickup_verb.gd" id="10_sdufp"]
+[ext_resource type="Script" path="res://UI/VerbBar/close_verb.gd" id="11_f047u"]
+[ext_resource type="Script" path="res://UI/VerbBar/use_verb.gd" id="12_5rx3j"]
+[ext_resource type="Script" path="res://UI/VerbBar/give_verb.gd" id="13_aa6cp"]
+[ext_resource type="Script" path="res://UI/VerbBar/wear_verb.gd" id="14_k8usr"]
+[ext_resource type="Script" path="res://UI/VerbBar/remove_verb.gd" id="15_ejvmo"]
+[ext_resource type="Script" path="res://UI/VerbBar/talk_verb.gd" id="16_cv0yo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eftsx"]
+size = Vector2(359, 51)
+
+[node name="Node2D" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_kkcuk")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(179.5, 223.019)
+scale = Vector2(0.997222, 0.962264)
+texture = ExtResource("2_2npwc")
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_left = 37.0
+offset_top = -24.0
+offset_right = 178.0
+offset_bottom = 24.0
+color = Color(0.631373, 0.309804, 0.121569, 1)
+
+[node name="VBoxContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 218.0
+offset_top = 200.0
+offset_right = 357.0
+offset_bottom = 247.0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 0
+offset_right = 139.0
+offset_bottom = 46.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(30, 22)
+layout_mode = 2
+columns = 5
+script = ExtResource("3_xi2x0")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(0, 198)
+input_pickable = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(180.5, 25.5)
+shape = SubResource("RectangleShape2D_eftsx")
+
+[node name="VerbContainer" type="Node" parent="."]
+
+[node name="walk_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 3.0
+offset_top = 200.0
+offset_right = 50.0
+offset_bottom = 213.0
+script = ExtResource("5_23c6i")
+verb = "walk"
+
+[node name="CollisionShape2D" parent="VerbContainer/walk_verb/StaticBody2D" index="0"]
+position = Vector2(23, 7)
+
+[node name="look_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 53.0
+offset_top = 199.0
+offset_right = 101.0
+offset_bottom = 214.0
+script = ExtResource("6_jav3c")
+verb = "look"
+
+[node name="CollisionShape2D" parent="VerbContainer/look_verb/StaticBody2D" index="0"]
+position = Vector2(26, 8)
+
+[node name="open_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 103.0
+offset_top = 199.0
+offset_right = 151.0
+offset_bottom = 214.0
+script = ExtResource("7_ileh8")
+verb = "open"
+
+[node name="move_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 152.0
+offset_top = 199.0
+offset_right = 202.0
+offset_bottom = 214.0
+script = ExtResource("8_isk8g")
+verb = "move"
+
+[node name="consume_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 1.0
+offset_top = 215.0
+offset_right = 50.0
+offset_bottom = 231.0
+script = ExtResource("9_aavu6")
+verb = "consume"
+
+[node name="pickup_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 52.0
+offset_top = 215.0
+offset_right = 101.0
+offset_bottom = 231.0
+script = ExtResource("10_sdufp")
+verb = "pickup"
+
+[node name="close_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 102.0
+offset_top = 216.0
+offset_right = 152.0
+offset_bottom = 231.0
+script = ExtResource("11_f047u")
+verb = "close"
+
+[node name="use_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 153.0
+offset_top = 216.0
+offset_right = 203.0
+offset_bottom = 231.0
+script = ExtResource("12_5rx3j")
+verb = "use"
+
+[node name="give_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 153.0
+offset_top = 233.0
+offset_right = 201.0
+offset_bottom = 247.0
+script = ExtResource("13_aa6cp")
+verb = "give"
+
+[node name="wear_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 102.0
+offset_top = 233.0
+offset_right = 151.0
+offset_bottom = 248.0
+script = ExtResource("14_k8usr")
+verb = "wear"
+
+[node name="remove_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 52.0
+offset_top = 233.0
+offset_right = 101.0
+offset_bottom = 248.0
+script = ExtResource("15_ejvmo")
+verb = "remove"
+
+[node name="talk_verb" parent="VerbContainer" instance=ExtResource("4_errdb")]
+offset_left = 1.0
+offset_top = 232.0
+offset_right = 50.0
+offset_bottom = 247.0
+script = ExtResource("16_cv0yo")
+verb = "talk"
+
+[editable path="VerbContainer/walk_verb"]
+[editable path="VerbContainer/look_verb"]
+[editable path="VerbContainer/open_verb"]

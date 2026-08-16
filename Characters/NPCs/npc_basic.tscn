@@ -1,0 +1,241 @@
+[gd_scene load_steps=28 format=3 uid="uid://cio3m7bn5h23a"]
+
+[ext_resource type="Script" path="res://Characters/NPCs/npc_script.gd" id="1_yr2xa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_syxww"]
+load_path = "res://.godot/imported/bagpiper.png-6905ea20fd20dd97bc1f9e16242d48ee.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1smk"]
+atlas = SubResource("CompressedTexture2D_syxww")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_miuj4"]
+load_path = "res://.godot/imported/bagpiper_nopipes.png-4417ac3efadfbb1e3a3ef9b656b8dd7e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmtej"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(0, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3ht7"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(50, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13nas"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(100, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uj7ul"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(150, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m7nbq"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(200, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_deefa"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(250, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wn1xr"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(300, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivsty"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(350, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22oq7"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(400, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrt5t"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(450, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wh8ei"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(500, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_068pd"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(550, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e46st"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(600, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j576q"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(650, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64p3g"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(700, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ef23y"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(750, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g5578"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(800, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ywch"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(850, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgxuw"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(900, 0, 50, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hoa88"]
+atlas = SubResource("CompressedTexture2D_miuj4")
+region = Rect2(950, 0, 50, 50)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h68um"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m1smk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmtej")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3ht7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13nas")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uj7ul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m7nbq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_deefa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wn1xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivsty")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22oq7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrt5t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wh8ei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_068pd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e46st")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j576q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64p3g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ef23y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g5578")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ywch")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgxuw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hoa88")
+}],
+"loop": true,
+"name": &"smoking",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_giw4o"]
+size = Vector2(20, 52.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k55x"]
+size = Vector2(18.5, 53.25)
+
+[node name="Bagpiper" type="CharacterBody2D" groups=["interactable"]]
+script = ExtResource("1_yr2xa")
+second_location = "smoke_break"
+second_location_condition = "bagpiper_break"
+npc_id = "bagpiper"
+dialogue_file = "res://Characters/NPCs/Bagpipe/bagpiper_dialogue.json"
+look_description = "Looks like he could do with a wash..."
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_h68um")
+animation = &"smoking"
+
+[node name="StaticBody2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
+position = Vector2(0, 0.25)
+shape = SubResource("RectangleShape2D_giw4o")
+
+[node name="SpeechLabel" type="Label" parent="AnimatedSprite2D"]
+texture_filter = 1
+offset_left = -46.0
+offset_top = -60.0
+offset_right = 49.0
+offset_bottom = -34.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 5
+autowrap_mode = 2
+
+[node name="SpeechLabel2" type="Label" parent="AnimatedSprite2D"]
+z_index = 1
+texture_filter = 1
+offset_left = -46.0
+offset_top = -54.0
+offset_right = 53.0
+offset_bottom = -31.0
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 5
+max_lines_visible = 0
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="SpeechLabel_player" type="Label" parent="AnimatedSprite2D"]
+offset_left = -99.0
+offset_top = -54.0
+offset_right = -32.0
+offset_bottom = -31.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 5
+autowrap_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.625)
+shape = SubResource("RectangleShape2D_2k55x")
+
+[node name="InteractionPoint" type="Marker2D" parent="."]
+position = Vector2(-30, 23)
+
+[connection signal="body_entered" from="AnimatedSprite2D/StaticBody2D" to="." method="_on_static_body_2d_body_entered"]
+[connection signal="input_event" from="AnimatedSprite2D/StaticBody2D" to="." method="_on_static_body_2d_input_event"]

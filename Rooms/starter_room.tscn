@@ -1,0 +1,72 @@
+[gd_scene load_steps=3 format=3 uid="uid://dy0fr276q28uy"]
+
+[sub_resource type="GDScript" id="GDScript_owemw"]
+script/source = "extends Node2D
+@export var min_y := 0.0
+@export var max_y := 800.0
+@export var min_scale := 0.7
+@export var max_scale := 1.2
+@export var character_scale := ''
+@export var scene_id := ''
+
+@onready var game = get_node(\"/root/Game\")
+
+func _ready():
+	GameState.current_scene = scene_id
+	if GameState.first_time_on_the_train:
+		GameState.first_time_on_the_train = false
+	
+	if GameState.dialogue_flags.has(\"start_race\"):
+		var target = game.find_child(\"Biker\", true, false) 
+		var target2 = game.find_child(\"biker\", true, false)
+		if target:
+			target.queue_free()
+		if target2:
+			target2.queue_free()
+		
+	if GameState.from_govan_hallway:
+		GameState.from_govan_hallway = false
+		var player = get_tree().get_current_scene().get_node(\"Player\")
+		player.input_enabled = false
+		var label = get_tree().get_current_scene().get_node(\"Player/Player/Label\")
+		label.visible = true
+		label.text = \"Huh - the whistling has stoppped now?!\"
+		await Helpers.wait(2.0)
+		label.visible = false
+		label.text = \"\"
+		player.input_enabled = true		
+"
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_rh8y1"]
+vertices = PackedVector2Array(354.203, 173.969, 354.781, 201, 20.7969, 201, 20.2109, 173.023)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(11, 211, 10, 163, 364, 164, 365, 211)])
+
+[node name="starter_room" type="Node2D"]
+texture_filter = 1
+script = SubResource("GDScript_owemw")
+character_scale = "2.5"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(181, 99)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, -16)
+navigation_polygon = SubResource("NavigationPolygon_rh8y1")
+
+[node name="entry" type="Marker2D" parent="."]
+position = Vector2(64, 169)
+
+[node name="exit" type="Marker2D" parent="."]
+visible = false
+position = Vector2(291, 134)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+z_index = 1000
+z_as_relative = false
+offset_right = 362.0
+offset_bottom = 200.0
+mouse_filter = 2

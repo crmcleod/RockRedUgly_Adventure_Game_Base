@@ -23,7 +23,7 @@ Entry point always "start", although technically configurable which allows alter
 	"next_reference": {...}
 }
 ```
-</details
+</details>
 
 <details>
 <summary>
